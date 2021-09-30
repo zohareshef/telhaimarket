@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-10 col-md-offset-2 mx-auto mt-4">
+        <h1>פאנל ניהול אדמין</h1>
+        <hr>
+        <h4>הזמנות של כלל משתמשי האתר</h4>
+        {{# each AllOrders }}
+        <div class="card my-4">
+            <div class="card-header">
+                <i class="fas fa-user-circle"></i> <u>שם המזמין:</u> <strong>{{ this.name }}</strong> <br>
+                <i class="fas fa-passport"></i> <u>מזהה הזמנה:</u> <strong>{{ this.id }}</strong> <br>
+                <i class="fas fa-map-marker-alt"></i> <u>כתובת למשלוח:</u> <strong>{{ this.address }}</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+                {{#each this.items}}
+                <li class="list-group-item">
+                    <img src="{{ this.item.imagePath }}" height="50px">
+                    <span class="badge badge-secondary float-left">{{ this.price }}
+                        ש"ח</span>
+                    {{ this.item.title }} | <span class="text-secondary"> {{ this.qty }} יחידות.</span>
+                </li>
+                {{/each}}
+            </ul>
+            <div class="card-footer">
+                שולם סה"כ:
+                <strong>
+                    {{ this.cart.totalPrice }}
+                    ש"ח
+                </strong>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

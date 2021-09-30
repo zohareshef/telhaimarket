@@ -1,0 +1,47 @@
+* {
+  direction: rtl;
+}
+
+body {
+  text-align: right;
+}
+
+.card-text {
+  color: #7f7f7f;
+  height: 100px;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/*
+.card-img-top {
+  max-height: 150px;
+}*/
+
+.bar {
+  background-image: url(../images/school-supply-list.jpg);
+  background-size: cover;
+  height: 50vh;
+}
+
+.overlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px #000;
+}
+
+.dropdown-item {
+  text-align: right;
+}
+
+.nav-item {
+  margin-left: 1.2em;
+}

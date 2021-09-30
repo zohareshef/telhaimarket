@@ -1,0 +1,142 @@
+</div>
+
+<div class="container-fluid bar">
+    <div class="row justify-content-center align-self-center overlay">
+        <div class="col-md-6 my-auto text-white">
+            <h1> חנות לציוד משרדי ומכשירי כתיבה | תל-חי </h1>
+            <h3>תל-חי מרקט הינה חנות למתן שירות לסטודנטים הלומדים במכללה.</h3>
+            <h5> החנות משווקות מגוון רחב של כלי כתיבה, ציוד משרדי והיקפי, מוצרי מיכון כגון מכשירי למינציה וגיליוטינות,
+                תיקים וקלמרים, גרילים ומוצרי קמפינג, בריכות intex אביזרי אופנה, מוצרי פופ ונוי, מכשירי חשמל, צעצועים
+                ועוד.</h5>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <a href="/products" class="btn btn-outline-light btn-lg" style="text-shadow: 0px 0px;" role="button"
+                        aria-pressed="true">לחנות המוצרים</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-4">ברוכים הבאים</h1>
+            <p class="lead">
+                ברוכים הבאים לתל-חי מרקט, חנות סטודנטים מקוונת במחירים נוחים לכל כיס. <br>
+                האתר נוסד בשנת 2021 על מנת לספק פתרונות לסטודנטים מבלי לצאת מהבית לצורך רכישת מוצרים חיוניים ללימודים
+
+            </p>
+            <hr class="my-4">
+            <p> האתר נבנה על ידי זוהר רשף ומיכאל ליפשיץ תלמידי החוג למדעי המחשב במסגרת פרוייקט בקורס "תכנות בסביבת
+                האינטרנט". <br>
+                אנחנו מזמינים אתכם להתרשם ולתת פידבק, <br>
+                <strong>
+                    גלישה נעימה!
+                </strong>
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="row my-4">
+        <div class="col-md-4">
+            <div class="card bg-light mb-3" style="">
+                <div class="card-header"><i class="fas fa-viruses"></i> קורונה בישראל</div>
+                <div class="card-body">
+                    <p class="card-text" id="Covidata">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card text-white bg-dark mb-3" style="">
+                <div class="card-header"><i class="fas fa-shekel-sign"></i> שערי מטבע עדכניים</div>
+                <div class="card-body">
+                    <p class="card-text text-white" id="ExchangeData">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3" style="">
+                <div class="card-header"><i class="fas fa-link"></i> המכללה האקדמית תל חי</div>
+                <div class="card-body text-center">
+                    <a href="https://www.telhai.ac.il/" target="_blank">
+                        <h5 class="card-title text-white""> למעבר לאתר המכללה לחץ
+                            כאן</h5>
+                        <img src=" https://english.telhai.ac.il/wp-content/uploads/2020/11/Tel-Hai_Logo_ENG_.png"
+                            width="200px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    ציטוט היום
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>מי שאמר שכסף לא יכול לקנות אושר פשוט לא ידע איפה לעשות קניות!</p>
+                        <footer class="blockquote-footer"> <cite title="Source Title">בו דרק</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            covid19Iint()
+
+            function covid19Iint() {
+                var url = "https://api.covid19api.com/summary"
+                $.get(url, function (data) {
+                    // console.log(data.Global);
+                    data = `
+                            <span><strong>מספר מאומתים:</strong> ${data.Countries[81].TotalConfirmed}</span> <br>
+                            <span><strong>מספר המתים:</strong> ${data.Countries[81].TotalDeaths}</span> <br>
+                            <span><strong>מספר המחלימים החדשים:</strong> ${data.Countries[81].TotalRecovered}</span>
+                        `
+                    $("#Covidata").html(data)
+                })
+            }
+
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            exTrackInit()
+
+            function exTrackInit() {
+                var url = "https://v6.exchangerate-api.com/v6/f41f7a5ee7a20a739670deff/latest/ILS"
+                $.get(url, function (data) {
+                    console.log(data.conversion_rates);
+                    data = `
+                            <span><strong>דולר:</strong> ${data.conversion_rates.USD}</span> <br>
+                               <span><strong>אירו:</strong> ${data.conversion_rates.EUR}</span> <br>
+                               <span><strong>לירה שטרלינג:</strong> ${data.conversion_rates.GBP}</span> <br>
+                               <span><strong>רובל:</strong> ${data.conversion_rates.RUB}</span> <br>
+                        
+                        `
+                    $("#ExchangeData").html(data)
+
+                })
+            }
+
+        })
+    </script>
+    <!-- div container will closed in layout -->

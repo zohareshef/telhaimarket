@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-10 col-md-offset-2 mx-auto mt-4">
+        <h1>פרופיל משתמש</h1>
+        <hr>
+        <h4>ההזמנות שלי</h4>
+        {{# each orders }}
+        <div class="card my-4">
+            <ul class="list-group list-group-flush">
+                {{#each this.items}}
+                <li class="list-group-item">
+                    <img src="{{ this.item.imagePath }}" height="50px">
+                    <span class="badge badge-secondary float-left">{{ this.price }}
+                        ש"ח</span>
+                    {{ this.item.title }} | <span class="text-secondary"> {{ this.qty }} יחידות.</span>
+                </li>
+                {{/each}}
+            </ul>
+            <div class="card-footer">
+                סה"כ:
+                <strong>
+                    {{ this.cart.totalPrice }}
+                    ש"ח
+                </strong>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
